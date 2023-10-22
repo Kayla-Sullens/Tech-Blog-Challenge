@@ -1,15 +1,15 @@
 <section class="row">
     <div class="column">
-        <h2>New Post</h2>
+        <h2>New Blog Post</h2>
 
-        <form class="new-post-form">
+        <form class="new-blog-form">
             <div>
-                <label for="post-title">Title</label>
-                <input type="text" id="post-title" name="post-title" />
+                <label for="blog-title">Title</label>
+                <input type="text" id="blog-title" name="blog-title" />
             </div>
             <div>
-                <label for="post-content">Content</label>
-                <textarea id="post-content" name="post-content"></textarea>
+                <label for="blog-content">Content</label>
+                <textarea id="blog-content" name="blog-content"></textarea>
             </div>
             <button type="submit" class="btn">Create</button>
         </form>
@@ -18,19 +18,19 @@
 
 {{#if blogs.length}}
 <section>
-    <h2>Your Posts</h2>
+    <h2>My Blog Posts</h2>
     <ol>
         {{#each blogs as |blog|}}
         <li>
-            <div class="post">
-                <div class="post-heading">
-                    <div class="post-name">
+            <div class="blog">
+                <div class="blog-heading">
+                    <div class="blog-name">
                         <h2>{{title}}</h2>
                     </div>
-                    <div class="post-date">
+                    <div class="blog-date">
                         <p>Posted by {{user.name}} on {{format_date date_created}}</p>
                     </div>
-                    <div class="post-content">
+                    <div class="blog-content">
                         <p>{{contents}}</p>
                     </div>
                 </div>

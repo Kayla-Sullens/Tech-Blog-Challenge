@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
+const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try {
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
 }
 });
 
-router.get('/vlog/:id', async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
     try {
       const blogData = await Blog.findByPk(req.params.id, {
         include: [
@@ -40,6 +41,19 @@ router.get('/vlog/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+    const userData = await User.findByPk(req.session.user_id, {
+        attributes: {exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+        ...user,
+        logged_in: true,
+    });
 });
 
 router.get('/login', (req, res) => {
