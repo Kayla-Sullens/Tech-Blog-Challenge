@@ -18,21 +18,24 @@
 
 {{#if blogs.length}}
 <section>
-    <div class="col-md-6 blog-list"
+    <div class="col-md-6 blog-list">
     <h2>My Blog Posts</h2>
     <ol>
         {{#each blogs as |blog|}}
         <li>
-            <div class="blog">
-                <div class="blog-heading">
-                    <div class="blog-name">
-                        <h2>{{title}}</h2>
+            <div class="row mb-2" id="blog">
+                <div class="col-md-8" id="blog-heading">
+                    <div class="blog-title" id="blog-title">
+                        <h3>{{title}}</h2>
                     </div>
-                    <div class="blog-date">
+                    <div class="blog-date" id="blog-date">
                         <p>Posted by {{user.name}} on {{format_date date_created}}</p>
                     </div>
-                    <div class="blog-content">
+                    <div class="blog-content" id="blog-content">
                         <p>{{contents}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-sm btn-danger" data-id="{{user_id}}">DELETE</button>
                     </div>
                 </div>
             </div>
