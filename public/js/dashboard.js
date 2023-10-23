@@ -1,10 +1,13 @@
+const elNewBlogForm = document.querySelector('.new-blog-form');
+const elBlogList = document.querySelector('.blog-list');
+
 const newBlogHandler = () => {};
 
 const deleteButtonHandler = () => {};
 
-document
-    .querySelector('.new-blog-form')
-    .addEventListener('submit', newBlogHandler);
-document
-    .querySelector('.blog-list')
-    .addEventListener('click', deleteButtonHandler);
+elNewBlogForm.addEventListener('submit', newBlogHandler);
+
+if(elBlogList) {
+    document.addEventListener('click', deleteButtonHandler);
+}
+ 
