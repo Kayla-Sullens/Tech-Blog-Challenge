@@ -1,17 +1,19 @@
 <section class="row">
-    <div class="column">
+    <div class="col-md-6">
         <h2>New Blog Post</h2>
 
-        <form class="new-blog-form">
-            <div>
+        <form class="form new-blog-form">
+            <div class="form-group">
                 <label for="blog-title">Title</label>
-                <input type="text" id="blog-title" name="blog-title" />
+                <input class="form-input" type="text" id="blog-title" name="blog-title" />
             </div>
-            <div>
+            <div class="form-group">
                 <label for="blog-content">Content</label>
-                <textarea id="blog-content" name="blog-content"></textarea>
+                <input class="form-input" id="blog-content" name="blog-content">
             </div>
-            <button type="submit" class="btn">Create</button>
+            <div class="form-group"></div>
+            <button class="btn btn-primary" type="submit">Create</button>
+            </div>
         </form>
     </div>
 </section>
@@ -19,28 +21,30 @@
 {{#if blogs.length}}
 <section>
     <div class="col-md-6 blog-list">
-    <h2>My Blog Posts</h2>
-    <ol>
-        {{#each blogs as |blog|}}
-        <li>
-            <div class="row mb-2" id="blog">
-                <div class="col-md-8" id="blog-heading">
-                    <div class="blog-title" id="blog-title">
-                        <h3>{{title}}</h2>
-                    </div>
-                    <div class="blog-date" id="blog-date">
-                        <p>Posted by {{user.name}} on {{format_date date_created}}</p>
-                    </div>
-                    <div class="blog-content" id="blog-content">
-                        <p>{{contents}}</p>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-sm btn-danger" data-id="{{user_id}}">DELETE</button>
+        <h2>My Blog Posts</h2>
+        <ol>
+            {{#each blogs as |blog|}}
+            <li>
+                <div class="row mb-2" id="blog">
+                    <div class="col-md-8" id="blog-heading">
+                        <div class="blog-title" id="blog-title">
+                            <h3>{{title}}</h2>
+                        </div>
+                        <div class="blog-date" id="blog-date">
+                            <p>Posted by {{user.username}} on {{format_date date_created}}</p>
+                        </div>
+                        <div class="blog-content" id="blog-content">
+                            <p>{{contents}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-sm btn-danger" data-id="{{user_id}}">DELETE</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        {{/each}}
-    </ol>
+            </li>
+            {{/each}}
+        </ol>
 </section>
 {{/if}}
+
+<script src="/js/dashboard.js"></script>
