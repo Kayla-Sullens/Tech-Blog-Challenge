@@ -17,9 +17,8 @@ header, .blog:not(:last-child) {
     text-decoration: underline;
 }
 
-ol {
+ol li {
     list-style: none;
-    display: inline-block;
     border: 2px solid blueviolet;
     padding: 20px;
 }
