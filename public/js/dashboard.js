@@ -5,14 +5,14 @@ const newBlogHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#blog-title').value.trim();
-    const date_created = document.querySelector('#blog-date').value.trim();
+    //const date_created = document.querySelector('#blog-date').value.trim();
     const contents = document.querySelector('#blog-content').value.trim();
 
-    if (title && date_created && contents) {
+    if (title && contents) {
         const response = await fetch('/api/blogs', {
             method: 'POST',
-            body: JSON.stringify({ title, date_created, contents }),
-            headers: { 'Content-Type': 'application.json' },
+            body: JSON.stringify({ title, contents }),
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
