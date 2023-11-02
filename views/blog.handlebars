@@ -11,10 +11,10 @@
     </div>
     {{#if logged_in}}
     <div class="add-comment">
-         <form class="form add-comment-form">
+         <form action="/api/comments" method = "post" class="form add-comment-form">
             <div class="form-group">
                 <label for="add-comment">Comment</label>
-                <input class="form-input" id="add-comment" name="ad-comment">
+                <input class="form-input" id="add-comment" name="comment_body">
             </div>
             <div class="form-group"></div>
             <button class="btn btn-primary" type="submit">Add Comment</button>
