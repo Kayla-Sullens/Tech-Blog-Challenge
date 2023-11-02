@@ -9,5 +9,19 @@
     <div class="blog-content">
             <p>{{contents}}</p>
     </div>
+    {{#if logged_in}}
+    <div class="add-comment">
+         <form class="form add-comment-form">
+            <div class="form-group">
+                <label for="add-comment">Comment</label>
+                <input class="form-input" id="add-comment" name="ad-comment">
+            </div>
+            <div class="form-group"></div>
+            <button class="btn btn-primary" type="submit">Add Comment</button>
+            </div>
+        </form>
+    </div>
+    {{else}}
+    <a href="/login">Add Comment</a>
+    {{/if}}
 </div>
-
